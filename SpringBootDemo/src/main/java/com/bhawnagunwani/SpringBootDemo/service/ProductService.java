@@ -22,4 +22,32 @@ public class ProductService {
 		return repository.save(product);
 	}
 	
+	public Product getProductById(Long id) {
+		return repository.findById(id).orElse(null);
+	}
+	
+	public void deleteProduct(Long id) {
+		repository.deleteById(id);
+	}
+	
+	public List<Product> getProductsByName(String name) {
+		return repository.findByName(name);
+	}
+	
+	public List<Product> getProductsByPriceGreaterThan(double price) {
+		return repository.findByPriceGreaterThan(price);
+	}
+	
+	public List<Product> getProductsByNameContaining(String namePart) {
+		return repository.findByNameContaining(namePart);
+	}
+	
+	public List<Product> getProdByName(String name) {
+		return repository.findProductsByName(name);
+	}
+	
+	public List<Product> getProdByPriceLessThan(double price) {
+		return repository.findProductsByPriceLessThan(price);
+	}
+	
 }
